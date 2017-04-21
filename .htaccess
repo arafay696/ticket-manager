@@ -1,0 +1,9 @@
+RewriteEngine On
+#RewriteBase /wifi_portal
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ wifi_portal/index.php?/$1 [L,QSA]
+RewriteRule ^(.*)$ index.php?/$1 [L]
+<IfModule mod_php5.c>
+  php_value short_open_tag 1
+</IfModule>

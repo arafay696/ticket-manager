@@ -1,0 +1,33 @@
+{
+  "name": "wifi_portal",
+  "version": "1.0.0",
+  "description": "wifi portal",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "angular-google-maps": "^2.4.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^3.0.0",
+    "gulp-fixmyjs": "^1.0.2",
+    "gulp-jshint": "^2.0.4",
+    "gulp-minify": "0.0.15",
+    "gulp-uglify": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://abdulrafayel@bitbucket.org/plutusdev/wificp.git"
+  },
+  "keywords": [
+    "wifi",
+    "portal"
+  ],
+  "author": "Plutus Commerce",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/plutusdev/wificp#readme"
+}

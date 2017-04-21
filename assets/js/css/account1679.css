@@ -1,0 +1,345 @@
+@import url("common.css");
+
+.center {
+  margin: 0 auto;
+  display: table;
+}
+
+.hidden {
+  display: none !important;
+}
+
+b {
+  font-family: 'ProximaNova-Bold';
+}
+
+/***************** ACCOUNT MODAL ******************/
+#account-modal {
+  /*font-family: 'ProximaNova-Regular', Helvetica, Arial, sans-serif;*/
+  position: absolute;
+  top: 50%;
+  background-color: #333130;
+  width: 800px;
+  height: 600px;
+  margin-left: -400px;
+  margin-top: -300px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  /* IT'S OVER 9000!!!! */
+  z-index: 9001;
+
+  box-shadow: 0 1px 4px rgba(0,0,0,.3), inset 0 1px 0 #4f4d4b;
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.3), inset 0 1px 0 #4f4d4b;
+  -moz-box-shadow: 0 1px 4px rgba(0,0,0,.3), inset 0 1px 0 #4f4d4b;
+  border: 1px solid #11100f;
+}
+
+#account-modal:focus {
+  outline: none;
+}
+
+#account-modal .sidebar {
+  height: 100%;
+  width: 160px;
+
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+  -moz-border-top-left-radius: inherit;
+  -moz-border-bottom-left-radius: inherit;
+  -webkit-border-top-left-radius: inherit;
+  -webkit-border-bottom-left-radius: inherit;
+  box-shadow: inherit;
+  -moz-box-shadow: inherit;
+  -webkit-box-shadow: inherit;
+  border-right: 1px solid #11100f;
+  background-color: #2D2A2A;
+
+  padding: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  float: left;
+}
+
+#account-modal .tab {
+  text-align: left;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+#account-modal .tab:hover {
+  background-color: #353535;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+}
+
+#account-modal .tab:hover a {
+  color: #eeeeee;
+}
+
+#account-modal .tab.selected {
+  background-color: #4F4E4C;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+}
+
+#account-modal .tab a {
+  color: #cccccc;
+  text-decoration: none;
+}
+
+#account-modal .tab.selected a {
+  color: #ffffff;
+}
+
+#account-modal .content {
+  display: none;
+  position: absolute;
+  left: 160px;
+  width: 640px;
+  height: 530px;
+  z-index: 9003;
+  border-top-right-radius: inherit;
+  -moz-border-top-right-radius: inherit;
+  -webkit-border-top-right-radius: inherit;
+  border-bottom: 1px solid #4F4D4C;
+
+  font-size: 13px;
+  color: #aaa;
+  overflow-y: auto;
+}
+
+#account-modal .content.billing {
+  border-bottom: none;
+  height: 100%;
+}
+
+#account-modal .content.selected {
+  display: block;
+}
+
+#account-modal .content-div {
+  padding: 30px 30px 15px 30px;
+  width: 100%;
+  border-bottom: 1px solid #4F4D4C;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#account-modal .content-div.no-border {
+  border: none;
+}
+
+#account-modal .content .message {
+  display: none;
+  padding: 15px 30px;
+  color: white;
+  background-color: rgb(117, 184, 45);
+  font-size: 16px;
+}
+
+#account-modal .modal-header-text {
+  font-size: 22px;
+  color: #FFF;
+  margin-bottom: 20px;
+  display: block;
+}
+
+#account-modal .labels {
+  width: 200px;
+  line-height: 30px;
+  float: left;
+  color: #aaaaaa;
+}
+
+#account-modal .data {
+  margin-left: 150px;
+}
+
+#account-modal .text {
+  height: 30px;
+  vertical-align: middle;
+  line-height: 30px;
+  cursor: default;
+  margin-bottom: 10px;
+}
+
+#account-modal .pwreset {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+#account-modal .input {
+  display: block;
+  width: 300px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  height: 22px;
+  background-color: #2a2625;
+  border: none;
+  color: #eee;
+  box-shadow: 0 1px 0 #42403f, inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 1px 0 #42403f, inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 1px 0 #42403f, inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding-left: 10px;
+}
+
+#account-modal .profile-image {
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  margin-right: 10px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
+
+#account-modal .upload-button {
+  background-color: #3f3b3b;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 #4c4948;
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 #4c4948;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 #4c4948;
+  border: none;
+  padding: 6px 12px;
+  color: #cccccc;
+  text-decoration: none;
+}
+
+.left-label {
+  margin-right: 40px;
+}
+
+#account-modal .content-line {
+  display: block;
+  width: 100%;
+  float: left;
+  line-height: 24px;
+  vertical-align: middle;
+  margin-bottom: 15px;
+}
+
+#account-modal .content-line.last {
+  margin-bottom: 0px;
+}
+
+#account-modal .date-input {
+  width: 45px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height: 30px;
+  padding: 0px;
+}
+
+#account-modal .cvc-input {
+  width: 90px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height: 30px;
+}
+
+#account-modal .promo-input {
+  width: 100px;
+  margin-right: 40px;
+}
+
+#account-modal .input.date-left {
+  float: left;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  -moz-border-top-right-radius: 0px;
+  -moz-border-bottom-right-radius: 0px;
+  -webkit-border-top-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  border-right: 1px solid #11100f;
+  text-align: center;
+  line-height: 30px;
+}
+
+#account-modal .input.date-right {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  -moz-border-top-left-radius: 0px;
+  -moz-border-bottom-left-radius: 0px;
+  -webkit-border-top-left-radius: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  text-align: center;
+}
+
+.payment-line {
+  margin-bottom: 10px;
+}
+
+#account-modal .payment-div-right {
+  margin-left: 380px;
+}
+
+#account-modal .data-text {
+  display: block;
+  color: #ffffff;
+  vertical-align: middle;
+  line-height: 30px;
+  margin-bottom: 0px;
+  cursor: default;
+}
+
+#account-modal .billing .data-text {
+  margin-left: 150px;
+}
+
+#account-modal .special-text {
+  display: inline;
+  font-family: 'ProximaNova-Bold';
+  letter-spacing: 1px;
+  color: #ffffff;
+  cursor: default;
+}
+
+#account-modal .data-link {
+  color: #64cded;
+  text-decoration: none;
+  line-height: 30px;
+}
+
+#account-modal .small-text {
+  font-size: 12px;
+  white-space: pre;
+}
+
+#account-modal .data-link:hover {
+ color: #63d7f7;
+}
+
+#account-modal .save-button {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 5px 12px;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+#account-modal form {
+  margin: 0px;
+}
+
+#response-text {
+  position: absolute;
+  right: 170px;
+  bottom: 20px;
+  color: #fff;
+}

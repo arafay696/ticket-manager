@@ -1,0 +1,63 @@
+body {
+  background-color: white;
+  color: #222;
+}
+#dash-view h2, h3 {
+}
+#dash-view .row-fluid {
+  height: 100%;
+}
+#dash-view .row-fluid > * {
+  height: 100%;
+}
+#dash-view .plan-info {
+  font-family: 'ProximaNova-Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  padding: 10px 0px;
+}
+#folders > .plan-info.alert {
+  padding: 8px 30px;
+  margin: 0px;
+  width: 100%;
+  background-color: rgba(255,255,255,0.12);
+  font-family: 'ProximaNova-Thin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border: none;
+  display: block;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.07);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2)
+}
+
+#folders > .plan-info.alert {
+  text-decoration: none;
+}
+
+#folders > .plan-info.alert b {
+  font-weight: bold;
+  font-family: 'ProximaNova-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+#folders > ul > li:first-child {
+  border: none;
+}
+#folders > ul > li {
+  padding: 15px 20px;
+  list-style: none;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+#folders > ul > li a {
+}
+
+#footer .plan-info {
+  font-family: 'ProximaNova-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#folders-sidebar {
+  background-color: #222;
+}
+
