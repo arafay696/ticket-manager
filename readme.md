@@ -32,6 +32,7 @@ codeigniter/
 - Angular animation 
 - Angular Pagination
 - Angular Datepicker
+- Font awesome 
 - And more... have a try!
 
 ## Installation
