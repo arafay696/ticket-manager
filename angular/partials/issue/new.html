@@ -1,0 +1,64 @@
+<div class="container">
+
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">Issue
+                    <strong>form</strong>
+                </h2>
+                <hr>
+                <p>Never Lose Tickets Again with Easy To Use Help Desk Ticketing System. <br/><br/>
+                    The TeamSupport ticket management system integrates all the tools necessary to ensure prompt and
+                    seamless resolution of customer inquiries. The more you automate, the more your service reps can
+                    focus on what is important – creating exceptional customer relationships. <br/>
+                    Submit your issue here..!<br/><br/></p>
+
+                <form name="issueForm" role="form" ng-submit="saveIssue()" novalidate>
+                    <ul class="list-group">
+                        <li ng-show="issueForm.name.$dirty && issueForm.name.$invalid"
+                            class="list-group-item list-group-item-danger">
+                            Name is required.
+                        </li>
+                        <li ng-show="issueForm.email.$dirty && issueForm.email.$invalid"
+                            class="list-group-item list-group-item-danger">
+                            Email is required.
+                        </li>
+                        <li ng-show="issueForm.category.$dirty && issueForm.category.$invalid"
+                            class="list-group-item list-group-item-danger">
+                            Category is required.
+                        </li>
+                    </ul>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label>Name</label>
+                            <input name="name" ng-model="issueData.name" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label>Email Address</label>
+                            <input ng-model="issueData.email" type="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label>Issue</label>
+                            <select class="form-control" name="category" ng-model="issueData.category" required>
+                                <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-lg-12">
+                            <label>Description</label>
+                            <textarea ng-model="issueData.description" class="form-control" rows="6"></textarea>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <input type="hidden" name="save" value="contact">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container -->

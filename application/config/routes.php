@@ -54,3 +54,5 @@ $route['404_override'] = '';
 //$route['translate_uri_dashes'] = FALSE;
 
 /***************URL rewrites***************/
+$route['issue/categories'] = 'IssueController/categories';
+$route['issue/save'] = 'IssueController/save';

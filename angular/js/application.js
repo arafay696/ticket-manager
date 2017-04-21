@@ -11,9 +11,13 @@ myApp.config(['$routeProvider', '$httpProvider', function ($routeProvider, $http
         templateUrl: 'angular/partials/dashboard.html'
     });
 
+    $routeProvider.when('/issue', {
+        controller: 'TrackIssueCtrl',
+        templateUrl: 'angular/partials/issue/new.html'
+    });
+
     $routeProvider.otherwise({
-        redirectTo: '/dashboard',
-        templateUrl: 'angular/partials/dashboard.html'
+        redirectTo: '/issue'
     });
 
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';

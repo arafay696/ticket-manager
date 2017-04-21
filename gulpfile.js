@@ -6,6 +6,8 @@ debug = require('gulp-debug');
 fixmyjs = require("gulp-fixmyjs");
 cleanCSS = require('gulp-clean-css');
 
+const ENVIRONMENT = 'development';
+
 // All bower components, Angular Library to Minify/Compile
 var componentsJsList = [
     'bower_components/angular/angular.min.js',
@@ -14,19 +16,25 @@ var componentsJsList = [
     'bower_components/angular-filter/dist/angular-filter.min.js',
     'bower_components/angularjs-datepicker/dist/angular-datepicker.js',
     'bower_components/angular-input-masks/angular-input-masks-standalone.min.js',
-    'bower_components/angularUtils-pagination/dirPagination.js',
-    'angular/js/application.js',
-    'angular/js/controller.js',
-    'angular/js/directive.js',
-    'angular/js/services.js',
-    'angular/js/filters.js'
+    'bower_components/angularUtils-pagination/dirPagination.js'
 ];
+
+if (ENVIRONMENT !== 'development') {
+    componentsJsList.push(
+        'angular/js/application.js',
+        'angular/js/controller.js',
+        'angular/js/directive.js',
+        'angular/js/services.js',
+        'angular/js/filters.js'
+    );
+}
 
 // All CSS files to Minify/Compile
 var cssList = [
-    'assets/css/style.css',
-    'assets/css/page_animation.css',
-    'assets/css/font-awesome/css/font-awesome-for-gulp.css'
+    'assets/client/css/bootstrap.min.css',
+    'assets/client/css/business-casual.css', // Custom CSS
+    'assets/client/css/page_animation.css',
+    'assets/client/css/font-awesome/css/font-awesome-for-gulp.css'
 ];
 
 // Task components: to complie list of JS files
@@ -48,7 +56,7 @@ gulp.task('css', function () {
         .pipe(debug())
         .pipe(cleanCSS())
         .pipe(concat('app.css'))
-        .pipe(gulp.dest('assets/css'))
+        .pipe(gulp.dest('assets/client/css'))
 });
 
 // Watch Files For Changes

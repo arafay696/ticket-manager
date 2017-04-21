@@ -1,5 +1,5 @@
 // Http Request Method
-myApp.factory('common', function ($http, $timeout) {
+myApp.factory('common', ['$http', '$timeout', function ($http, $timeout) {
     return {
         http: {
             post: function (url, data) {
@@ -36,7 +36,7 @@ myApp.factory('common', function ($http, $timeout) {
                 }
             }
             return false;
-        },fetchRandom: function () {
+        }, fetchRandom: function () {
             var text = "";
             var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -75,4 +75,4 @@ myApp.factory('common', function ($http, $timeout) {
             return decodeURIComponent(window.atob(str));
         }
     }
-});
+}]);
