@@ -40,6 +40,9 @@ codeigniter/
 git clone https://github.com/arafay696/starter-codeigniter-angularjs.git
 ```
 ```
+cd starter-codeigniter-angularjs
+```
+```
 composer update
 ```
 ```
@@ -47,6 +50,10 @@ npm install
 ```
 ```
 bower install
+```
+Update Base Url  ` application/config/config.php`
+```
+$config['base_url'] = 'http://localhost/starter-ci-angularjs';
 ```
 
 ## Run
@@ -58,7 +65,7 @@ gulp
 
 Start application:
 ```
-http://localhost/{directory-name}
+http://localhost/starter-ci-angularjs
 ```
 
 ## Requirements
