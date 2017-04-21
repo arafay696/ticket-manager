@@ -51,10 +51,6 @@ npm install
 ```
 bower install
 ```
-Update Base Url  ` application/config/config.php`
-```
-$config['base_url'] = 'http://localhost/starter-ci-angularjs';
-```
 
 ## Run
 
@@ -65,7 +61,7 @@ gulp
 
 Start application:
 ```
-http://localhost/starter-ci-angularjs
+http://localhost/starter-codeigniter-angularjs
 ```
 
 ## Requirements

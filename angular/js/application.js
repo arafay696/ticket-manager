@@ -1,10 +1,10 @@
-var wifiportal = angular.module('wifiportal', ["ngRoute", "ngAnimate", "angular.filter", '720kb.datepicker', 'ui.utils.masks', 'angularUtils.directives.dirPagination']);
+var myApp = angular.module('myApp', ["ngRoute", "ngAnimate", "angular.filter", '720kb.datepicker', 'ui.utils.masks', 'angularUtils.directives.dirPagination']);
 
 // Constant Here
-wifiportal.constant('ConstantAlias', {});
+myApp.constant('ConstantAlias', {});
 
 
-wifiportal.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
+myApp.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
 
     $routeProvider.when('/dashboard', {
         controller: 'DashboardCtrl',

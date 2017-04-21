@@ -1,5 +1,5 @@
 // Http Request Method
-wifiportal.factory('common', function ($http, $timeout) {
+myApp.factory('common', function ($http, $timeout) {
     return {
         http: {
             post: function (url, data) {
@@ -75,25 +75,4 @@ wifiportal.factory('common', function ($http, $timeout) {
             return decodeURIComponent(window.atob(str));
         }
     }
-});
-
-/*
- * Shared Properties Mehod works like Session
- * Pass: sharedProperties object in controller
- * and set/get Value by key/value
- */
-wifiportal.service('sharedProperties', function () {
-    var session = [];
-
-    return {
-        getProperty: function (propertyName) {
-            return session[propertyName];
-        },
-        setProperty: function (propertyName, value) {
-            session[propertyName] = value;
-        },
-        emptySession: function () {
-            session = [];
-        }
-    };
 });
