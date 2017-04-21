@@ -1,7 +1,7 @@
 {
-  "name": "wifi_portal",
+  "name": "starter_ci_angularjs",
   "version": "1.0.0",
-  "description": "wifi portal",
+  "description": "starter codeigniter angularjs",
   "main": "gulpfile.js",
   "dependencies": {
     "angular-google-maps": "^2.4.1"
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://abdulrafayel@bitbucket.org/plutusdev/wificp.git"
+    "url": "git+https://github.com/arafay696/starter-codeigniter-angularjs.git"
   },
   "keywords": [
     "wifi",
@@ -29,5 +29,5 @@
   ],
   "author": "Plutus Commerce",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/plutusdev/wificp#readme"
+  "homepage": "https://github.com/arafay696/starter-codeigniter-angularjs"
 }
