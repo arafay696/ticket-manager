@@ -1,5 +1,5 @@
 // Http Request Method
-adminApp.factory('common', ['$http', '$timeout', function ($http, $timeout) {
+adminApp.factory('common', ['$http', '$timeout', 'PusherConfig', function ($http, $timeout, PusherConfig) {
     return {
         http: {
             post: function (url, data) {
@@ -77,11 +77,11 @@ adminApp.factory('common', ['$http', '$timeout', function ($http, $timeout) {
         pusher: {
             init: function () {
                 // Enable pusher logging - don't include this in production
-                Pusher.logToConsole = true;
+                Pusher.logToConsole = PusherConfig.log;
 
-                var pusher = new Pusher('de53a31726fcf8b0cc37', {
-                    cluster: 'ap2',
-                    encrypted: true
+                var pusher = new Pusher(PusherConfig.apiKey, {
+                    cluster: PusherConfig.clusterName,
+                    encrypted: PusherConfig.encrypted
                 });
 
                 return pusher;

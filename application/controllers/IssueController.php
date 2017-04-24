@@ -54,17 +54,17 @@ class IssueController extends CI_Controller
     public function sendPush()
     {
         $options = array(
-            'cluster' => 'ap2',
-            'encrypted' => true
+            'cluster' => config_item('cluster'),
+            'encrypted' => config_item('encrypted')
         );
         $pusher = new Pusher(
-            'de53a31726fcf8b0cc37',
-            'c38a8ef0732ba5af7963',
-            '324527',
+            config_item('pusher_api_key'),
+            config_item('pusher_api_secret'),
+            config_item('pusher_app_id'),
             $options
         );
 
-        $data['message'] = 'hello world';
-        $pusher->trigger('my-channel', 'my-event', $data);
+        $data['message'] = 'New request received. Do you want to continue?';
+        $pusher->trigger(config_item('channelName'), config_item('issueRequestEvent'), $data);
     }
 }

@@ -1,30 +1,38 @@
-adminApp.controller('RootCtrl', ['$scope', '$rootScope', 'common', function ($scope, $rootScope, common) {
-    $rootScope.title = "Welcome - TMS";
+adminApp.controller('RootCtrl', ['$scope', '$rootScope', 'common', 'PusherConfig', function ($scope, $rootScope, common, PusherConfig) {
+    $rootScope.title = "Welcome Admin - TMS";
+
+    $scope.callBackFunc = function (data) {
+        common.flashMsg('success', data.message);
+    }
 
     var isLoggedIn = true;
     if (isLoggedIn) {
-        $rootScope.pusher = common.pusher.init();
-        var channel = $rootScope.pusher.subscribe('my-channel');
-        channel.bind('my-event', function (data) {
-            common.flashMsg('success', data.message);
-        });
+        var pusher = common.pusher.init();
+        var channel = pusher.subscribe(PusherConfig.channelName);
+        channel.bind(PusherConfig.issueRequestEvent, $scope.callBackFunc);
     }
-}]);
 
-adminApp.controller('DashboardCtrl', ['$scope', '$rootScope', 'common', function ($scope, $rootScope, common) {
-    $rootScope.title = "Dashboard - TMS";
-
+    // Update User Status
     $scope.workerStatus = function (status) {
-        if (status == 'available') {
-            $rootScope.pusher = common.pusher.init();
+        angular.element('.userStatus').removeClass('fa-check');
+        if (status == 1) {
+            angular.element('.available').addClass('fa-check');
+            common.flashMsg('success', "Welcome Again...!");
+            channel.bind(PusherConfig.issueRequestEvent, $scope.callBackFunc);
         } else {
-            common.pusher.disconnect($rootScope.pusher);
+            angular.element('.busy').addClass('fa-check');
+            common.flashMsg("error", "You're now offline. Good Bye.");
+            channel.unbind(PusherConfig.issueRequestEvent, $scope.callBackFunc);
         }
     }
 
     $scope.state = function () {
-        alert($rootScope.pusher.connection.state);
+        alert(pusher.connection.state);
     }
+}]);
+
+adminApp.controller('DashboardCtrl', ['$scope', '$rootScope', 'common', function ($scope, $rootScope, common) {
+    $rootScope.title = "Admin Dashboard - TMS";
 }]);
 
 adminApp.controller('TrackIssueCtrl', ['$scope', '$rootScope', 'common', function ($scope, $rootScope, common) {

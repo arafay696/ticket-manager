@@ -18,6 +18,18 @@
     <![endif]-->
 
     <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
+
+    <style>
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+    </style>
 </head>
 <body ng-cloak>
 <p class="flashMsg"></p>
@@ -241,6 +253,17 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
+                    <li class="dropdown-header">Status</li>
+                    <li ng-click="workerStatus(1)">
+                        <a href="#"><i class="fa fa-check text-success userStatus available"></i> Online</a>
+                    </li>
+                    <li ng-click="workerStatus(3)">
+                        <a href="#"><i class="fa text-danger userStatus busy"></i> Busy</a>
+                    </li>
+                    <li ng-click="state()">
+                        <a href="#"><i class="fa"></i> State</a>
+                    </li>
+                    <li class="divider"></li>
                     <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
@@ -252,7 +275,7 @@
 
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
+                <ul class="nav" id="side-menu" >
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
                             <input type="text" class="form-control" placeholder="Search...">
@@ -363,6 +386,12 @@
 
 </div>
 <!-- /#wrapper -->
+<!-- Angular Init Here -->
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-1.11.1.min.js"></script>
+
+<!-- Angular Minify Files - All JS -->
+<script src="<?php echo base_url(); ?>build/admin/js/components.js"></script>
+
 
 <!-- jQuery -->
 <script src="<?php echo base_url(); ?>assets/admin/vendor/jquery/jquery.min.js"></script>
@@ -373,19 +402,8 @@
 <!-- Metis Menu Plugin JavaScript -->
 <script src="<?php echo base_url(); ?>assets/admin/vendor/metisMenu/metisMenu.min.js"></script>
 
-<!-- Morris Charts JavaScript -->
-<script src="<?php echo base_url(); ?>assets/admin/vendor/raphael/raphael.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/admin/vendor/morrisjs/morris.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/admin/data/morris-data.js"></script>
-
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url(); ?>assets/admin/dist/js/sb-admin-2.js"></script>
-
-<!-- Angular Init Here -->
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-1.11.1.min.js"></script>
-
-<!-- Angular Minify Files - All JS -->
-<script src="<?php echo base_url(); ?>build/admin/js/components.js"></script>
 
 <!-- App JS Files-->
 <?php if (ENVIRONMENT == 'development') { ?>

@@ -1,7 +1,14 @@
 var adminApp = angular.module('adminApp', ["ngRoute", "ngAnimate", "angular.filter", '720kb.datepicker', 'ui.utils.masks', 'angularUtils.directives.dirPagination']);
 
 // Constant Here
-adminApp.constant('ConstantAlias', {});
+adminApp.constant('PusherConfig', {
+    'log': true,
+    'apiKey': 'de53a31726fcf8b0cc37',
+    'encrypted': true,
+    'clusterName': 'ap2',
+    'channelName': 'issueChannel',
+    'issueRequestEvent': 'issueRequestEvent'
+});
 
 
 adminApp.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
