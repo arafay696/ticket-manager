@@ -45,6 +45,7 @@ class IssueController extends CI_Controller
         if ($save) {
             $response['status'] = true;
             $response['message'] = 'Data saved';
+            $this->sendPush();
         }
 
         echo json_encode($response);
