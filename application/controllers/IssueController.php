@@ -43,15 +43,18 @@ class IssueController extends CI_Controller
             'message' => 'Data could not be saved.'
         );
         if ($save) {
+            $where = 'id = ' . $save;
+            $getDetail = $this->common_model->select_where('*', 'issue', $where);
             $response['status'] = true;
             $response['message'] = 'Data saved';
-            $this->sendPush();
+            $response['user_detail'] = $save;
+            $this->sendPush($getDetail->row_array());
         }
 
         echo json_encode($response);
     }
 
-    public function sendPush()
+    public function sendPush($userDetail)
     {
         $options = array(
             'cluster' => config_item('cluster'),
@@ -65,6 +68,7 @@ class IssueController extends CI_Controller
         );
 
         $data['message'] = 'New request received. Do you want to continue?';
+        $data['user_detail'] = $userDetail;
         $pusher->trigger(config_item('channelName'), config_item('issueRequestEvent'), $data);
     }
 }

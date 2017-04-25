@@ -12,7 +12,7 @@
     z-index: 9999;
     display: none;
     height: 70px;
-    min-height: 70px;
+    min-height: 125px;
 }
 
 .errorMsg {
@@ -32,3 +32,14 @@
     border-color: #46b8da;
     color: #fff;
 }
+
+/*----------------------------------Chat Box -------------------------------*/
+.chat_sidebar {
+    z-index: 2;
+    padding: 0;
+    right: 0px;
+    bottom: 0px;
+    position: fixed;
+}
+
+/*----------------------------------Chat Box End-------------------------------*/

@@ -1,8 +1,14 @@
 var myApp = angular.module('myApp', ["ngRoute", "ngAnimate", "angular.filter", '720kb.datepicker', 'ui.utils.masks', 'angularUtils.directives.dirPagination']);
 
 // Constant Here
-myApp.constant('ConstantAlias', {});
-
+myApp.constant('PusherConfig', {
+    'log': true,
+    'apiKey': 'de53a31726fcf8b0cc37',
+    'encrypted': true,
+    'clusterName': 'ap2',
+    'channelName': 'issueChannel',
+    'issueRequestEvent': 'issueRequestEvent'
+});
 
 myApp.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
 

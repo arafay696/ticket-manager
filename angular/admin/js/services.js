@@ -1,5 +1,5 @@
 // Http Request Method
-adminApp.factory('common', ['$http', '$timeout', 'PusherConfig', function ($http, $timeout, PusherConfig) {
+adminApp.factory('common', ['$http', '$timeout', 'PusherConfig', '$compile', function ($http, $timeout, PusherConfig, $compile) {
     return {
         http: {
             post: function (url, data) {
@@ -61,11 +61,11 @@ adminApp.factory('common', ['$http', '$timeout', 'PusherConfig', function ($http
             var ele = $('.' + change);
             ele.empty();
             ele.slideDown('slow');
-            ele.html(msg);
+            $compile(ele.html(msg));
             $timeout(function () {
                 ele.slideUp(1000);
                 $('.flashMsg').removeClass(change);
-            }, 4000);
+            }, 7000);
         },
         resetSessionValues: function (data) {
             return this.http.post('welcome/reset/session', data);

@@ -1,10 +1,16 @@
 adminApp.controller('RootCtrl', ['$scope', '$rootScope', 'common', 'PusherConfig', function ($scope, $rootScope, common, PusherConfig) {
     $rootScope.title = "Welcome Admin - TMS";
 
+    $scope.userDetail = {};
+    $scope.channelName = null;
     $scope.callBackFunc = function (data) {
-        common.flashMsg('success', data.message);
+        $scope.userDetail = data.user_detail;
+        $scope.channelName = "userchannel-" + "-test" + $scope.userDetail.id;
+        var msg = 'New issue created by ' + data.user_detail.name + '. Do you want to continue?';
+        common.flashMsg('success', msg + "<br /><br /><request-received></request-received>");
     }
 
+    // Is User Logged In, then init Pusher Objects
     var isLoggedIn = true;
     if (isLoggedIn) {
         var pusher = common.pusher.init();
@@ -26,9 +32,50 @@ adminApp.controller('RootCtrl', ['$scope', '$rootScope', 'common', 'PusherConfig
         }
     }
 
+    // Check Current State of Pusher
     $scope.state = function () {
         alert(pusher.connection.state);
     }
+
+    // is Worker received request or not.....!
+    $scope.requestReceived = function (receivedOrNot) {
+        if (receivedOrNot == 'yes') {
+            //alert($scope.userDetail.id);
+            common.http.post('worker/request/received', {
+                user_id: $scope.userDetail.id,
+                user_name: $scope.userDetail.name
+            }).then(
+                function (response) {
+                    response = response.data;
+                }, function () {
+                    common.flashMsg('error', 'Something went wrong...');
+                }
+            );
+        }
+    }
+
+    // Request Received or Not, Confirm Box - Worker
+    angular.element(document).on('click', '.confirmRequest', function () {
+        $scope.requestReceived(angular.element(this).attr('data-confirm'));
+    });
+
+
+    // Send Message - Module
+    $scope.sendMsg = function () {
+        common.http.post('send/message', {
+            channelName: $scope.channelName,
+            message: $scope.msg
+        }).then(
+            function (response) {
+                response = response.data;
+            }, function () {
+                common.flashMsg('error', 'Something went wrong...');
+            }
+        );
+    }
+
+    //common.flashMsg('success', "New Request received" + "<br /><request-received></request-received>");
+
 }]);
 
 adminApp.controller('DashboardCtrl', ['$scope', '$rootScope', 'common', function ($scope, $rootScope, common) {
