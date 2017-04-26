@@ -185,7 +185,10 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-dot-circle-o unreadNotification hide" aria-hidden="true" style="font-size: 9px; position: relative; top: -10px; color: red;"></i> <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-dot-circle-o unreadNotification hide"
+                                                        aria-hidden="true"
+                                                        style="font-size: 9px; position: relative; top: -10px; color: red;"></i>
+                    <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <li>
@@ -385,7 +388,7 @@
     <div class="view page page-fade-in" ng-view ng-cloak=""></div>
 
     <!-- Chat Content -->
-    <div class="chat-panel panel panel-default col-lg-3 chat_sidebar">
+    <div class="chat-panel panel panel-default col-lg-3 chat_sidebar hide">
         <div class="panel-heading">
             <i class="fa fa-comments fa-fw"></i> Chat
             <div class="btn-group pull-right">
@@ -423,82 +426,15 @@
             </div>
         </div>
         <!-- /.panel-heading -->
-        <div class="panel-body">
-            <ul class="chat">
-                <li class="left clearfix">
-                    <span class="chat-img pull-left">
-                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle">
-                    </span>
-                    <div class="chat-body clearfix">
-                        <div class="header">
-                            <strong class="primary-font">Jack Sparrow</strong>
-                            <small class="pull-right text-muted">
-                                <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
-                            </small>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum
-                            ornare dolor, quis ullamcorper ligula sodales.
-                        </p>
-                    </div>
-                </li>
-                <li class="right clearfix">
-                    <span class="chat-img pull-right">
-                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle">
-                    </span>
-                    <div class="chat-body clearfix">
-                        <div class="header">
-                            <small class=" text-muted">
-                                <i class="fa fa-clock-o fa-fw"></i> 13 mins ago
-                            </small>
-                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum
-                            ornare dolor, quis ullamcorper ligula sodales.
-                        </p>
-                    </div>
-                </li>
-                <li class="left clearfix">
-                    <span class="chat-img pull-left">
-                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle">
-                    </span>
-                    <div class="chat-body clearfix">
-                        <div class="header">
-                            <strong class="primary-font">Jack Sparrow</strong>
-                            <small class="pull-right text-muted">
-                                <i class="fa fa-clock-o fa-fw"></i> 14 mins ago
-                            </small>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum
-                            ornare dolor, quis ullamcorper ligula sodales.
-                        </p>
-                    </div>
-                </li>
-                <li class="right clearfix">
-                    <span class="chat-img pull-right">
-                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle">
-                    </span>
-                    <div class="chat-body clearfix">
-                        <div class="header">
-                            <small class=" text-muted">
-                                <i class="fa fa-clock-o fa-fw"></i> 15 mins ago
-                            </small>
-                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum
-                            ornare dolor, quis ullamcorper ligula sodales.
-                        </p>
-                    </div>
-                </li>
+        <div id="chatItemsParent" class="panel-body">
+            <ul id="chatItems" class="chat chat-body chatBody">
             </ul>
         </div>
         <!-- /.panel-body -->
         <div class="panel-footer">
             <div class="input-group">
-                <input ng-model="msg" id="btn-input" class="form-control input-sm" placeholder="Type your message here..." type="text">
+                <input ng-model="msg" id="btn-input" class="form-control input-sm textMsg"
+                       placeholder="Type your message here..." type="text">
                 <span class="input-group-btn">
                     <button ng-click="sendMsg()" class="btn btn-warning btn-sm" id="btn-chat">Send</button>
                 </span>

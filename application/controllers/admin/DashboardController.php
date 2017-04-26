@@ -26,6 +26,7 @@ class DashboardController extends CI_Controller
     {
         $channelName = $this->input->post('channelName');
         $userMsg = $this->input->post('message');
+        $eventName = $this->input->post('eventName');
         $options = array(
             'cluster' => config_item('cluster'),
             'encrypted' => config_item('encrypted')
@@ -38,6 +39,6 @@ class DashboardController extends CI_Controller
         );
 
         $data['message'] = $userMsg;
-        $pusher->trigger($channelName, 'chatMessage', $data);
+        $pusher->trigger($channelName, $eventName, $data);
     }
 }
