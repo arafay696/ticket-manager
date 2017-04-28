@@ -6,7 +6,7 @@ myApp.controller('DashboardCtrl', ['$scope', '$rootScope', 'common', function ($
     $rootScope.title = "Dashboard - TMS";
 }]);
 
-myApp.controller('TrackIssueCtrl', ['$scope', '$rootScope', 'common', function ($scope, $rootScope, common) {
+myApp.controller('TrackIssueCtrl', ['$scope', '$route', '$rootScope', 'common', function ($scope, $route, $rootScope, common) {
     $rootScope.title = "Issue - TMS";
 
     $scope.issueData = {
@@ -46,6 +46,7 @@ myApp.controller('TrackIssueCtrl', ['$scope', '$rootScope', 'common', function (
                         'category': '1',
                         'description': ''
                     };
+                    $route.reload();
                 } else {
                     common.flashMsg('error', 'Issue could not be saved.');
                 }

@@ -23,23 +23,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
-    <script>
-
-        // Enable pusher logging - don't include this in production
-        Pusher.logToConsole = true;
-
-        var pusher = new Pusher('de53a31726fcf8b0cc37', {
-            cluster: 'ap2',
-            encrypted: true
-        });
-
-        var channel = pusher.subscribe('my-channel');
-        channel.bind('my-event', function(data) {
-            alert(data.message);
-        });
-    </script>
 </head>
 <body ng-cloak>
 <p class="flashMsg"></p>

@@ -56,3 +56,7 @@ $route['404_override'] = '';
 /***************URL rewrites***************/
 $route['issue/categories'] = 'IssueController/categories';
 $route['issue/save'] = 'IssueController/save';
+
+
+//------------------ Admin Routes---------------
+$route['admin'] = 'admin/DashboardController/index';
