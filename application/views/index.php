@@ -23,6 +23,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
 </head>
 <body ng-cloak>
 <p class="flashMsg"></p>
@@ -68,6 +70,66 @@
 
 <div class="view page page-fade-in" ng-view ng-cloak=""></div>
 <!-- /.container -->
+
+<!-- Chat Content -->
+<div class="chat-panel panel panel-default col-lg-3 chat_sidebar hide-">
+    <div class="panel-heading">
+        <i class="fa fa-comments fa-fw"></i> Chat
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-chevron-down"></i>
+            </button>
+            <ul class="dropdown-menu slidedown">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-refresh fa-fw"></i> Refresh
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-check-circle fa-fw"></i> Available
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-times fa-fw"></i> Busy
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-clock-o fa-fw"></i> Away
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-sign-out fa-fw"></i> Sign Out
+                    </a>
+                </li>
+            </ul>
+            <button toggle-chat-box style="margin-left: 4px;" type="button" class="btn btn-default btn-xs">
+                <i class="fa fa-window-minimize"></i>
+            </button>
+        </div>
+    </div>
+    <!-- /.panel-heading -->
+    <div id="chatItemsParent" class="panel-body">
+        <ul id="chatItems" class="chat chat-body chatBody">
+        </ul>
+    </div>
+    <!-- /.panel-body -->
+    <div id="chatBoxFooter" class="panel-footer">
+        <div class="input-group">
+            <input id="btn-input" ng-model="msg" class="form-control input-sm textMsg"
+                   placeholder="Type your message here..." type="text">
+            <span class="input-group-btn">
+                    <button ng-click="sendMsg()" class="btn btn-warning btn-sm" id="btn-chat">Send</button>
+            </span>
+        </div>
+    </div>
+    <!-- /.panel-footer -->
+</div>
+<!-- Chat Content End -->
 
 <footer>
     <div class="container">

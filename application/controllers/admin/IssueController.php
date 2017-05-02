@@ -9,7 +9,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class DashboardController extends CI_Controller
+class IssueController extends CI_Controller
 {
 
     public function __construct()
@@ -17,16 +17,10 @@ class DashboardController extends CI_Controller
         parent::__construct();
     }
 
-    public function index()
+    public function requestReceived()
     {
-        $this->load->view("admin/index");
-    }
-
-    public function sendMsg()
-    {
-        $channelName = $this->input->post('channelName');
-        $userMsg = $this->input->post('message');
-        $eventName = $this->input->post('eventName');
+        $userId = $this->input->post('user_id');
+        $userName = $this->input->post('user_name');
         $options = array(
             'cluster' => config_item('cluster'),
             'encrypted' => config_item('encrypted')
@@ -38,7 +32,7 @@ class DashboardController extends CI_Controller
             $options
         );
 
-        $data['message'] = $userMsg;
-        $pusher->trigger($channelName, $eventName, $data);
+        $data['message'] = 'Welcome ' . $userName . ": Let's chat..!";
+        $pusher->trigger("userchannel-" . "-test" . $userId, 'requestProcessed', $data);
     }
 }

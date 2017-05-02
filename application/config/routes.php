@@ -60,3 +60,5 @@ $route['issue/save'] = 'IssueController/save';
 
 //------------------ Admin Routes---------------
 $route['admin'] = 'admin/DashboardController/index';
+$route['worker/request/received'] = 'admin/IssueController/requestReceived';
+$route['send/message'] = 'admin/DashboardController/sendMsg';

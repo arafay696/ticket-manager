@@ -15,7 +15,7 @@ adminApp.config(['$routeProvider', '$httpProvider', function ($routeProvider, $h
 
     $routeProvider.when('/dashboard', {
         controller: 'DashboardCtrl',
-        templateUrl: '../angular/admin/partials/dashboard.html'
+        templateUrl: 'angular/admin/partials/dashboard.html'
     });
 
     $routeProvider.otherwise({

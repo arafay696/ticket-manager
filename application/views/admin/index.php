@@ -185,7 +185,10 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-dot-circle-o unreadNotification hide"
+                                                        aria-hidden="true"
+                                                        style="font-size: 9px; position: relative; top: -10px; color: red;"></i>
+                    <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <li>
@@ -275,7 +278,7 @@
 
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu" >
+                <ul class="nav" id="side-menu">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
                             <input type="text" class="form-control" placeholder="Search...">
@@ -384,6 +387,68 @@
 
     <div class="view page page-fade-in" ng-view ng-cloak=""></div>
 
+    <!-- Chat Content -->
+    <div class="chat-panel panel panel-default col-lg-3 chat_sidebar hide-">
+        <div class="panel-heading">
+            <i class="fa fa-comments fa-fw"></i> Chat
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-chevron-down"></i>
+                </button>
+                <ul class="dropdown-menu slidedown">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-refresh fa-fw"></i> Refresh
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-check-circle fa-fw"></i> Available
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-times fa-fw"></i> Busy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-clock-o fa-fw"></i> Away
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-sign-out fa-fw"></i> Sign Out
+                        </a>
+                    </li>
+                </ul>
+                <button toggle-chat-box style="margin-left: 4px;" type="button" class="btn btn-default btn-xs">
+                    <i class="fa fa-window-minimize"></i>
+                </button>
+
+            </div>
+        </div>
+        <!-- /.panel-heading -->
+        <div id="chatItemsParent" class="panel-body">
+            <ul id="chatItems" class="chat chat-body chatBody">
+            </ul>
+        </div>
+        <!-- /.panel-body -->
+        <div id="chatBoxFooter" class="panel-footer">
+            <div class="input-group">
+                <input ng-model="msg" id="btn-input" class="form-control input-sm textMsg"
+                       placeholder="Type your message here..." type="text">
+                <span class="input-group-btn">
+                    <button ng-click="sendMsg()" class="btn btn-warning btn-sm" id="btn-chat">Send</button>
+                </span>
+            </div>
+        </div>
+        <!-- /.panel-footer -->
+    </div>
+    <!-- Chat Content End -->
+
+</div>
 </div>
 <!-- /#wrapper -->
 <!-- Angular Init Here -->

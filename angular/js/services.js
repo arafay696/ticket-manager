@@ -1,5 +1,5 @@
 // Http Request Method
-myApp.factory('common', ['$http', '$timeout', function ($http, $timeout) {
+myApp.factory('common', ['$http', '$timeout', 'PusherConfig', '$compile', function ($http, $timeout, PusherConfig, $compile) {
     return {
         http: {
             post: function (url, data) {
@@ -61,7 +61,7 @@ myApp.factory('common', ['$http', '$timeout', function ($http, $timeout) {
             var ele = $('.' + change);
             ele.empty();
             ele.slideDown('slow');
-            ele.html(msg);
+            $compile(ele.html(msg));
             $timeout(function () {
                 ele.slideUp(1000);
                 $('.flashMsg').removeClass(change);
@@ -73,6 +73,21 @@ myApp.factory('common', ['$http', '$timeout', function ($http, $timeout) {
             return window.btoa(encodeURIComponent(str));
         }, decryptUrlParameter: function (str) {
             return decodeURIComponent(window.atob(str));
+        },
+        pusher: {
+            init: function () {
+                // Enable pusher logging - don't include this in production
+                Pusher.logToConsole = PusherConfig.log;
+
+                var pusher = new Pusher(PusherConfig.apiKey, {
+                    cluster: PusherConfig.clusterName,
+                    encrypted: PusherConfig.encrypted
+                });
+
+                return pusher;
+            }, disconnect: function (pusher) {
+                pusher.disconnect();
+            }
         }
     }
 }]);
