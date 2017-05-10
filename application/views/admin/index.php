@@ -388,7 +388,7 @@
     <div class="view page page-fade-in" ng-view ng-cloak=""></div>
 
     <!-- Chat Content -->
-    <div class="chat-panel panel panel-default col-lg-3 chat_sidebar hide">
+    <div class="chat-panel panel panel-default col-lg-3 chat_sidebar hide-">
         <div class="panel-heading">
             <i class="fa fa-comments fa-fw"></i> Chat
             <div class="btn-group pull-right">
@@ -423,6 +423,10 @@
                         </a>
                     </li>
                 </ul>
+                <button toggle-chat-box style="margin-left: 4px;" type="button" class="btn btn-default btn-xs">
+                    <i class="fa fa-window-minimize"></i>
+                </button>
+
             </div>
         </div>
         <!-- /.panel-heading -->
@@ -431,7 +435,7 @@
             </ul>
         </div>
         <!-- /.panel-body -->
-        <div class="panel-footer">
+        <div id="chatBoxFooter" class="panel-footer">
             <div class="input-group">
                 <input ng-model="msg" id="btn-input" class="form-control input-sm textMsg"
                        placeholder="Type your message here..." type="text">

@@ -29,6 +29,7 @@
     "jquery-ui": "^1.12.1",
     "angular-filter": "^0.5.14",
     "angularjs-datepicker": "^2.1.12",
-    "angular-input-masks": "^2.5.0"
+    "angular-input-masks": "^2.5.0",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1"
   }
 }

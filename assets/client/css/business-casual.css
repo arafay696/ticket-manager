@@ -154,6 +154,7 @@ footer p {
     right: 0px;
     bottom: 0px;
     position: fixed;
+    margin-bottom: 2px !important;
 }
 
 /*----------------------------------Chat Box End-------------------------------*/

@@ -12,7 +12,7 @@ application/cache/*
 
 !application/logs/index.html
 !application/logs/.htaccess
-assets/css/app.css
+assets/client/css/app.css
 assets/admin/css/app.css
 
 /vendor/

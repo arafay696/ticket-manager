@@ -63,7 +63,9 @@ myApp.controller('RootCtrl', ['$scope', '$rootScope', 'common', 'PusherConfig', 
         $scope.msg = '';
 
         // Scroll to Last New Msg...
-        angular.element('#chatItemsParent').animate({scrollTop: angular.element('#chatItems').prop("scrollHeight")}, 500);
+        if (angular.isDefined(data.self)) {
+            angular.element('#chatItemsParent').animate({scrollTop: angular.element('#chatItems').prop("scrollHeight")}, 500);
+        }
     }
 
     // Save Issue and Request to Workers

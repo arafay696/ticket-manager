@@ -62,7 +62,10 @@ adminApp.controller('RootCtrl', ['$scope', '$rootScope', 'common', 'PusherConfig
         angular.element('.chatBody').append(chatHtml);
         $scope.msg = '';
 
-        angular.element('#chatItemsParent').animate({scrollTop: angular.element('#chatItems').prop("scrollHeight")}, 500);
+        // Scroll to Last New Msg...
+        if (angular.isDefined(data.self)) {
+            angular.element('#chatItemsParent').animate({scrollTop: angular.element('#chatItems').prop("scrollHeight")}, 500);
+        }
     }
 
     // is Worker received request or not.....!
