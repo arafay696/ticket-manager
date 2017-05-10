@@ -54,7 +54,7 @@ class IssueController extends CI_Controller
         echo json_encode($response);
     }
 
-    public function sendPush($userDetail)
+    public function sendPush($userDetail = array())
     {
         $options = array(
             'cluster' => config_item('cluster'),

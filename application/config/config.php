@@ -528,7 +528,7 @@ $config['proxy_ips'] = '';
 
 /*
  * -------------- Pusher Configuration
- * */
+ **/
 $config['pusher_api_key'] = 'de53a31726fcf8b0cc37';
 $config['pusher_api_secret'] = 'c38a8ef0732ba5af7963';
 $config['pusher_app_id'] = '324527';
